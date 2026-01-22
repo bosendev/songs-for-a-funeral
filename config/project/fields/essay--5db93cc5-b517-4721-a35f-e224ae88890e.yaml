@@ -1,0 +1,16 @@
+columnSuffix: null
+handle: essay
+instructions: 'A few words regarding image'
+name: Essay
+searchable: false
+settings:
+  byteLimit: null
+  charLimit: null
+  code: true
+  initialRows: 15
+  multiline: true
+  placeholder: Essay
+  uiMode: enlarged
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\PlainText

@@ -1,0 +1,23 @@
+// globals.scss
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+
+body {
+  font-family: $font-family;
+  line-height: 1.6;
+  color: $primary-color;
+  border: 1px solid black;
+  border-top:1px solid white;
+
+
+
+}
+
+.test {
+  position: absolute;
+  z-index: 10;
+  display: flex;
+  margin: 1rem;
+  color: red;
+  background-color: blue;
+}

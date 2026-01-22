@@ -1,0 +1,38 @@
+dateModified: 1768760708
+email:
+  fromEmail: bosendev@gmail.com
+  fromName: 'Songs for a Funeral'
+  transportType: craft\mail\transportadapters\Sendmail
+fs:
+  localFiles:
+    hasUrls: true
+    name: 'Local Files'
+    settings:
+      path: '@webroot/uploads'
+    type: craft\fs\Local
+    url: '@web/uploads'
+meta:
+  __names__:
+    4a5b9cf2-1f29-4981-b8bd-cf826cc03eb3: 'Songs for a Funeral' # Songs for a Funeral
+    5db93cc5-b517-4721-a35f-e224ae88890e: Essay # Essay
+    7b24a742-6c87-427a-95ca-079481adeb82: 'Public Schema' # Public Schema
+    8dd7e758-b1f9-4da4-8236-b7c69fa89f80: work # work
+    2727da44-f5fa-4848-bc8b-72a7083f647a: work # work
+    2959d6de-074a-42fc-9fcc-2bbe6dd8f7f6: Uploads # Uploads
+    89621744-3d7a-43d1-9747-b1804ade848e: 'Songs for a Funeral' # Songs for a Funeral
+    b1cbfad8-59d6-4383-9a6f-6907187a2bcf: Photo # Photo
+system:
+  devMode: true
+  edition: solo
+  live: true
+  name: 'Songs for a Funeral'
+  retryDuration: null
+  schemaVersion: 5.8.0.3
+  timeZone: America/Chicago
+users:
+  allowPublicRegistration: false
+  defaultGroup: null
+  photoSubpath: null
+  photoVolumeUid: null
+  require2fa: false
+  requireEmailVerification: true

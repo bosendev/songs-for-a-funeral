@@ -1,0 +1,8 @@
+baseUrl: $PRIMARY_SITE_URL
+handle: default
+hasUrls: true
+language: en
+name: 'Songs for a Funeral'
+primary: true
+siteGroup: 89621744-3d7a-43d1-9747-b1804ade848e # Songs for a Funeral
+sortOrder: 1

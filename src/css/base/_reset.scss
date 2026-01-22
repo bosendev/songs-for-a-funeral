@@ -1,0 +1,130 @@
+// _reset.scss - Custom hybrid reset (Andy Bell + Tailwind Preflight)
+
+/* ============================================
+   CORE RESETS (from Andy Bell + Tailwind)
+   ============================================ */
+
+/* Box sizing + border defaults */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  border-color: currentcolor; /* Tailwind addition */
+  border-style: solid;    /* Tailwind addition */
+  border-width: 0;        /* Tailwind addition */
+}
+
+/* Remove default margin and padding */
+* {
+  padding: 0;
+  margin: 0;
+}
+
+/* ============================================
+   HTML & BODY
+   ============================================ */
+
+/* Root defaults */
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+/* Body defaults */
+body {
+  min-height: 100vh;
+  line-height: 1.5;
+  text-rendering: optimizespeed;
+}
+
+/* ============================================
+   TYPOGRAPHY
+   ============================================ */
+
+/* Headings inherit from body (Tailwind approach) */
+h1, h2, h3, h4, h5, h6 {
+  font-size: inherit;
+  font-weight: inherit;
+}
+
+/* Links without classes keep underline skip */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+/* ============================================
+   LISTS
+   ============================================ */
+
+/* Remove list styles (both approaches) */
+ul,
+ol {
+  list-style: none;
+}
+
+/* ============================================
+   MEDIA ELEMENTS
+   ============================================ */
+
+/* Make media responsive and block-level */
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+  height: auto; /* Tailwind addition for aspect ratio preservation */
+}
+
+/* ============================================
+   FORMS
+   ============================================ */
+
+/* Inputs and buttons inherit fonts */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Remove default button styles (Tailwind) */
+button {
+  cursor: pointer; /* Helpful addition */
+  background-color: transparent;
+  background-image: none;
+}
+
+/* Textarea only resizes vertically by default */
+textarea {
+  resize: vertical;
+}
+
+/* ============================================
+   TABLES (Tailwind)
+   ============================================ */
+
+table {
+  border-spacing: 0;
+  border-collapse: collapse;
+}
+
+/* ============================================
+   ACCESSIBILITY
+   ============================================ */
+
+/* Reduce motion for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+  }
+}

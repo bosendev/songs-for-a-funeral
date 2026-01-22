@@ -1,0 +1,28 @@
+// variables
+$primary-color: #333;
+$font-family:
+  system-ui,
+  -apple-system,
+  sans-serif;
+
+// ================================
+// Breakpoints
+// ================================
+
+// Min-width (mobile-first)
+$bp-tiny: 375px;
+$bp-xs: 480px;
+$bp-sm: 640px;
+$bp-md: 768px;
+$bp-lg: 1024px;
+$bp-xl: 1280px;
+$bp-xxl: 1440px;
+
+// Max-width (desktop-first) - 1px less to avoid overlap
+$bp-tiny-max: 374px; // Below tiny
+$bp-xs-max: 479px; // Below xs
+$bp-sm-max: 639px; // Below sm
+$bp-md-max: 767px; // Below md
+$bp-lg-max: 1023px; // Below lg
+$bp-xl-max: 1279px; // Below xl
+$bp-xxl-max: 1439px; // Below xxl

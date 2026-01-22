@@ -1,0 +1,27 @@
+{# picture.twig #}
+{#
+  Responsive picture macro for portfolio images
+  Usage: {{ picture.portfolio(image, title, size, classes) }}
+#}
+
+{% macro portfolio(image, alt, size = 800, classes = '') %}
+  {% if image %}
+    <picture>
+      <source
+        srcset="{{ image.getUrl({ width: size, format: 'avif' }) }}"
+        type="image/avif">
+
+      <source
+        srcset="{{ image.getUrl({ width: size, format: 'webp' }) }}"
+        type="image/webp">
+
+      <img
+        src="{{ image.getUrl({ width: size, format: 'jpg' }) }}"
+        alt="{{ alt }}"
+        width="{{ size }}"
+        height="{{ size }}"
+        loading="lazy"
+        class="{{ classes }}">
+    </picture>
+  {% endif %}
+{% endmacro %}

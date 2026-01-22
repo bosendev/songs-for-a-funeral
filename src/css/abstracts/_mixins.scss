@@ -1,0 +1,34 @@
+// mixins.scss
+
+@use 'sass:map';
+@use 'variables' as *;
+
+$breakpoints: (
+  'xxl': $bp-xxl,
+  // ← Changed from $breakpoint-xxl
+  'xl': $bp-xl,
+  // ← Changed from $breakpoint-xl
+  'lg': $bp-lg,
+  // ← Changed from $breakpoint-lg
+  'md': $bp-md,
+  // ← Changed from $breakpoint-md
+  'sm': $bp-sm,
+  // ← Changed from $breakpoint-sm
+  'xs': $bp-xs,
+  // ← Changed from $breakpoint-xs
+  'tiny': $bp-tiny, // ← Add this too!
+);
+
+// Min-width (mobile-first)
+@mixin mq-min($breakpoint) {
+  @media (min-width: $breakpoint) {
+    @content;
+  }
+}
+
+// Max-width (desktop-first)
+@mixin mq-max($breakpoint) {
+  @media (max-width: $breakpoint) {
+    @content;
+  }
+}

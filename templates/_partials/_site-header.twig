@@ -1,0 +1,38 @@
+{# site-header.twig #}
+{# <header class="site-header bg-gray-800 text-white p-4">
+  <div class="container mx-auto flex gap-6">
+    <a href="/" class="hover:underline">Home</a>
+    <a href="/work" class="hover:underline">Work</a>
+  </div>
+</header> #}
+  <header class="site-header">
+    <div class="l-site-header">
+      <div class="logo-band">
+        <div class="logo-outerbox">
+          <span class="meh-title">MEH</span>
+          <span class="hex">im hex ic</span>
+          <button class="menu-btn" @click="toggleClass($event)">
+            <div class="rotate">
+                <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="32"
+                height="32"
+                viewBox="0 0 24 24"
+                >
+                <path
+                fill="currentColor"
+                d="M19 12.75H5a.75.75 0 0 1 0-1.5h14a.75.75 0 0 1 0 1.5m0-4.5H5a.75.75 0 0 1 0-1.5h14a.75.75 0 0 1 0 1.5m0 9H5a.75.75 0 0 1 0-1.5h14a.75.75 0 0 1 0 1.5"
+                />
+                </svg>
+             </div>
+          </button>
+        </div>
+      </div>
+      <nav class="site-header__nav hidden ">
+        <ul class="site-header__nav-list">
+          <li> Home</li>
+          <li> Events</li>
+        </ul>
+      </nav>
+    </div>
+  </header>

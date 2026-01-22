@@ -1,0 +1,23 @@
+{# _layouts/_layout.twig #}
+{% import '_macros/vite' as vite %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% if entry is defined %}{{ entry.title }} - {% endif %}Songs for a Funeral</title>
+</head>
+<body>
+  {% include '_partials/_site-header.twig' %}
+
+  <main class="site-main">
+    {% block content %}{% endblock %}
+  </main>
+
+  {% include '_partials/_site-footer.twig' %}
+
+  {{ vite.entry('main') }}
+</body>
+</html>

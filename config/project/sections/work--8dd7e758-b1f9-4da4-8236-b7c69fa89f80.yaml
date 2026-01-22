@@ -1,0 +1,21 @@
+defaultPlacement: end
+enableVersioning: true
+entryTypes:
+  -
+    uid: 2727da44-f5fa-4848-bc8b-72a7083f647a # work
+handle: work
+maxAuthors: 1
+name: work
+previewTargets:
+  -
+    label: 'Primary entry page'
+    refresh: '1'
+    urlFormat: '{url}'
+propagationMethod: all
+siteSettings:
+  4a5b9cf2-1f29-4981-b8bd-cf826cc03eb3: # Songs for a Funeral
+    enabledByDefault: true
+    hasUrls: true
+    template: work/_entry.twig
+    uriFormat: 'work/{slug}'
+type: channel

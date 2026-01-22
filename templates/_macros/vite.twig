@@ -1,0 +1,13 @@
+{# Vite helper macro #}
+{% macro entry(entry) %}
+  {% set devMode = craft.app.config.general.devMode %}
+  {% if devMode %}
+    {# Development mode - load from Vite dev server #}
+    <script type="module" src="http://localhost:3000/@vite/client"></script>
+    <script type="module" src="http://localhost:3000/src/js/{{ entry }}.js"></script>
+  {% else %}
+    {# Production mode - load from built files #}
+    <link rel="stylesheet" href="/dist/assets/{{ entry }}.css" />
+    <script type="module" src="/dist/assets/{{ entry }}.js"></script>
+  {% endif %}
+{% endmacro %}
