@@ -9,7 +9,7 @@
     {% for entry in craft.entries.section('work').all() %}
       <a href="{{ entry.url }}" class="block">
         {% if entry.photo.one() %}
-          {{ picture.portfolio(entry.photo.one(), entry.title, 40, 'w-full h-64 object-cover mb-4') }}
+          {{ picture.portfolio(entry.photo.one(), entry.title, 600, 'w-full h-64 object-cover mb-4') }}
         {% endif %}
         <h2 class="text-xl font-semibold">{{ entry.title }}</h2>
       </a>

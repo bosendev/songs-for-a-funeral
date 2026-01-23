@@ -1,9 +1,3 @@
-{# picture.twig #}
-{#
-  Responsive picture macro for portfolio images
-  Usage: {{ picture.portfolio(image, title, size, classes) }}
-#}
-
 {% macro portfolio(image, alt, size = 800, classes = '') %}
   {% if image %}
     <picture>

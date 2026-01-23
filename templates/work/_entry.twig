@@ -1,12 +1,14 @@
+{# work/_entry.twig #}
+
 {% extends "_layouts/_layout.twig" %}
 {% import '_macros/picture.twig' as picture %}
 
 {% block content %}
-<div class="container mx-auto >
+<div class="container mx-auto">
   {# <h1 class="text-4xl font-bold mb-8">{{ entry.title }}</h1> #}
 
   {% if entry.photo.one() %}
-    {{ picture.portfolio(entry.photo.one(), entry.title, 800, 'w-full h-auto max-w-[800px] mx-auto  object-cover mb-4') }}
+    {{ picture.portfolio(entry.photo.one(), entry.title, 600, 'w-full h-auto max-w-[800px] mx-auto object-cover mb-4') }}
   {% endif %}
   {% if entry.essay %}
     <div class="prose max-w-4xl mx-auto">
