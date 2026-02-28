@@ -1,38 +1,69 @@
-{# site-header.twig #}
-{# <header class="site-header bg-gray-800 text-white p-4">
-  <div class="container mx-auto flex gap-6">
-    <a href="/" class="hover:underline">Home</a>
-    <a href="/work" class="hover:underline">Work</a>
-  </div>
-</header> #}
-  <header class="site-header">
-    <div class="l-site-header">
-      <div class="logo-band">
-        <div class="logo-outerbox">
+{# _partials/_site-header.twig #}
+
+<header class="site-header">
+  <div class="l-site-header">
+    <div class="logo-band">
+
+      <div class="logo-outerbox">
+        <a href="/work" class="logo-band-home-link">
           <span class="meh-title">MEH</span>
           <span class="hex">im hex ic</span>
-          <button class="menu-btn" @click="toggleClass($event)">
-            <div class="rotate">
-                <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="32"
-                height="32"
-                viewBox="0 0 24 24"
-                >
-                <path
+        </a>
+        <button class="menu-btn">
+          <div class="rotate">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="32"
+              height="32"
+              viewBox="0 0 24 24"
+            >
+              <path
                 fill="currentColor"
                 d="M19 12.75H5a.75.75 0 0 1 0-1.5h14a.75.75 0 0 1 0 1.5m0-4.5H5a.75.75 0 0 1 0-1.5h14a.75.75 0 0 1 0 1.5m0 9H5a.75.75 0 0 1 0-1.5h14a.75.75 0 0 1 0 1.5"
-                />
-                </svg>
-             </div>
-          </button>
-        </div>
+              />
+            </svg>
+          </div>
+        </button>
       </div>
-      <nav class="site-header__nav hidden ">
-        <ul class="site-header__nav-list">
-          <li> Home</li>
-          <li> Events</li>
-        </ul>
-      </nav>
+
+      {% if entry is defined and entry.section.handle == 'work' %}
+        {% set prevEntry = craft.entries()
+          .section('work')
+          .andWhere(['<', 'structureelements.lft', entry.lft])
+          .orderBy('structureelements.lft desc')
+          .one() ?? craft.entries().section('work').orderBy('structureelements.lft desc').one() %}
+
+        {% set nextEntry = craft.entries()
+          .section('work')
+          .andWhere(['>', 'structureelements.lft', entry.lft])
+          .orderBy('structureelements.lft asc')
+          .one() ?? craft.entries().section('work').orderBy('structureelements.lft asc').one() %}
+
+        <a href="{{ prevEntry.url }}" class="logo-band-btn logo-band-btn--prev">
+          <i aria-hidden="true">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24">
+              <path fill="currentColor" d="M15.41 16.59L10.83 12l4.58-4.59L14 6l-6 6 6 6z"/>
+            </svg>
+          </i>
+          <span class="sr-only">Previous image</span>
+        </a>
+
+        <a href="{{ nextEntry.url }}" class="logo-band-btn logo-band-btn--next">
+          <i aria-hidden="true">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24">
+              <path fill="currentColor" d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6z"/>
+            </svg>
+          </i>
+          <span class="sr-only">Next image</span>
+        </a>
+
+        {% else %}
+          <div class="logo-band-btn logo-band-btn--next"></div>
+          <div class="logo-band-btn logo-band-btn--prev"></div>
+      {% endif %}
+
     </div>
-  </header>
+
+    {% include '_partials/_site-header-nav.twig' %}
+  </div>
+</header>

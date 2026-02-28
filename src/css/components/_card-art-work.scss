@@ -1,3 +1,14 @@
 // card-art-work.scss
 @use '../abstracts/variables' as *;
 @use '../abstracts/mixins' as *;
+
+.container-image-prose {
+  width: 100%;
+  max-width: 802px;
+  margin: 0 auto;
+  border: 1px solid gray;
+}
+
+.portfolio-img {
+  margin: 0;
+}

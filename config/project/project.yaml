@@ -1,4 +1,27 @@
-dateModified: 1768760708
+dateModified: 1772314389
+elementSources:
+  craft\elements\Entry:
+    -
+      key: '*'
+      type: native
+    -
+      heading: Structures
+      key: 'heading:f7265720-76d2-408f-8b32-9e5960b9418b'
+      type: heading
+    -
+      defaultSort:
+        - structure
+        - asc
+      defaultViewMode: ''
+      disabled: false
+      key: 'section:8dd7e758-b1f9-4da4-8236-b7c69fa89f80' # work
+      tableAttributes:
+        - status
+        - postDate
+        - expiryDate
+        - link
+        - type
+      type: native
 email:
   fromEmail: bosendev@gmail.com
   fromName: 'Songs for a Funeral'
@@ -21,6 +44,11 @@ meta:
     2959d6de-074a-42fc-9fcc-2bbe6dd8f7f6: Uploads # Uploads
     89621744-3d7a-43d1-9747-b1804ade848e: 'Songs for a Funeral' # Songs for a Funeral
     b1cbfad8-59d6-4383-9a6f-6907187a2bcf: Photo # Photo
+plugins:
+  ssg:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
 system:
   devMode: true
   edition: solo

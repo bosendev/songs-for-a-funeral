@@ -8,6 +8,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{% if entry is defined %}{{ entry.title }} - {% endif %}Songs for a Funeral</title>
+  <style>
+  body {
+    opacity: 0;
+    visibility: hidden;
+  }
+</style>
 </head>
 <body>
   {% include '_partials/_site-header.twig' %}

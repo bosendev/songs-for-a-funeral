@@ -1,0 +1,25 @@
+{# _partials/_site-header-nav.twig #}
+{# Site navigation with carousel dropdown #}
+{% import '_macros/picture.twig' as picture %}
+
+{# Get all work entries #}
+{% set workEntries = craft.entries()
+  .section('work')
+  .orderBy('lft')
+  .all() %}
+
+<nav class="site-header__nav">
+  <div class="l-site-header__nav">
+    <ul class="site-header__nav-list max-w-[800px] mx-auto">
+      {% for work in workEntries %}
+        <li{% if entry is defined and entry.id == work.id %} class="is-current"{% endif %}>
+          <a href="{{ work.url }}" class="carousel-thumb">
+            {% if work.photo.one() %}
+              {{ picture.portfolio(work.photo.one(), work.title, 40, 'carousel-thumb__img')|raw }}
+            {% endif %}
+          </a>
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
+</nav>

@@ -1,15 +1,25 @@
+// src/js/main.js
 // Main JavaScript entry point
-// This file is processed by Vite
 
-// Import your styles
+// Import styles
 import '../css/main.scss';
 
-// Your JavaScript here
-console.log('Vite + Craft CMS ready!');
+// Import modules
+import { config } from './config.js';
+import { logger } from './utils/logger.js';
+import { initMenuToggle } from './modules/menuToggle.js';
 
-// Example: Simple module
+// Initialize app
+// Initialize app
 function init() {
-  console.log('Site initialized');
+  logger.log('App initializing...', config);
+
+  initMenuToggle();
+
+  logger.log('App ready!');
+
+  // Fade in page when everything is loaded
+  document.body.classList.add('loaded');
 }
 
 // Run on DOM ready

@@ -1,0 +1,45 @@
+// src/css/abstracts/_scrollbar.scss
+// ================================
+// Scrollbar Mixin
+// ================================
+// Usage:
+//   Basic (uses default variables):
+//   @include scrollbar;
+//
+//   Custom overrides:
+//   @include scrollbar($width: 6px, $thumb: #fff, $track: #000, $thumb-hover: cyan);
+// ================================
+
+@use 'variables' as *;
+
+@mixin scrollbar(
+  $width: $scrollbar-width,
+  $thumb: $scrollbar-thumb,
+  $track: $scrollbar-track,
+  $thumb-hover: $scrollbar-thumb-hover
+) {
+  scrollbar-color: $thumb $track;
+
+  // Firefox
+
+  scrollbar-width: thin;
+
+  // WebKit (Chrome, Safari, Edge)
+  &::-webkit-scrollbar {
+    width: $width;
+    height: $width; // handles horizontal scrollbars too
+  }
+
+  &::-webkit-scrollbar-track {
+    background: $track;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: $thumb;
+    border-radius: $width;
+  }
+
+  // &::-webkit-scrollbar-thumb:hover {
+  //   background-color: $thumb-hover;
+  // }
+}

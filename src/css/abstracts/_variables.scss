@@ -26,3 +26,11 @@ $bp-md-max: 767px; // Below md
 $bp-lg-max: 1023px; // Below lg
 $bp-xl-max: 1279px; // Below xl
 $bp-xxl-max: 1439px; // Below xxl
+
+// ================================
+// Scrollbar
+// ================================
+$scrollbar-width: 4px;
+$scrollbar-thumb: #000;
+$scrollbar-thumb-hover: cyan;
+$scrollbar-track: #fff;

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "c96c9b50dec54362afe4f576a06b5f9b",
+    "content-hash": "e7f8181e1d3b03e8e8fe3693ba4e4342",
     "packages": [
         {
             "name": "bacon/bacon-qr-code",
@@ -3388,6 +3388,60 @@
                 "source": "https://github.com/ralouphie/getallheaders/tree/develop"
             },
             "time": "2019-03-08T08:55:37+00:00"
+        },
+        {
+            "name": "rias/craft-ssg",
+            "version": "1.3.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/riasvdv/craft-ssg.git",
+                "reference": "2efb7eab33fdcb5ba9cf3a3b5cb0061dd8933407"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/riasvdv/craft-ssg/zipball/2efb7eab33fdcb5ba9cf3a3b5cb0061dd8933407",
+                "reference": "2efb7eab33fdcb5ba9cf3a3b5cb0061dd8933407",
+                "shasum": ""
+            },
+            "require": {
+                "craftcms/cms": "^5.4.0",
+                "php": ">=8.3"
+            },
+            "require-dev": {
+                "craftcms/ecs": "dev-main",
+                "craftcms/phpstan": "dev-main",
+                "pestphp/pest": "^3.0",
+                "spatie/fork": "^1.2"
+            },
+            "suggest": {
+                "spatie/fork": "To enable concurrency higher than one."
+            },
+            "type": "craft-plugin",
+            "extra": {
+                "name": "Static Site Generation",
+                "class": "rias\\ssg\\SSG",
+                "handle": "ssg",
+                "developer": "Rias",
+                "documentationUrl": "https://github.com/riasvdv/craft-ssg"
+            },
+            "autoload": {
+                "psr-4": {
+                    "rias\\ssg\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "mit"
+            ],
+            "description": "Static Site Generation for Craft CMS",
+            "support": {
+                "docs": "https://github.com/riasvdv/craft-ssg",
+                "email": "hey@rias.be",
+                "issues": "https://github.com/riasvdv/craft-ssg/issues?state=open",
+                "rss": "https://github.com/riasvdv/craft-ssg/releases.atom",
+                "source": "https://github.com/riasvdv/craft-ssg"
+            },
+            "time": "2026-02-09T20:40:08+00:00"
         },
         {
             "name": "samdark/yii2-psr-log-target",
