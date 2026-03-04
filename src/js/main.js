@@ -8,6 +8,7 @@ import '../css/main.scss';
 import { config } from './config.js';
 import { logger } from './utils/logger.js';
 import { initMenuToggle } from './modules/menuToggle.js';
+import initModal from './modules/modal.js';
 
 // Initialize app
 // Initialize app
@@ -20,6 +21,8 @@ function init() {
 
   // Fade in page when everything is loaded
   document.body.classList.add('loaded');
+
+  initModal();
 }
 
 // Run on DOM ready

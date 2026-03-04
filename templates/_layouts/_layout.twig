@@ -16,14 +16,16 @@
 </style>
 </head>
 <body>
-  {% include '_partials/_site-header.twig' %}
+  <div class="body-l">
+    {% include '_partials/_site-header.twig' %}
+    <main class="site-main">
+      {% block content %}{% endblock %}
+    </main>
+    {% include '_partials/_site-footer.twig' %}
+    {{ vite.entry('main') }}
+  </div>
 
-  <main class="site-main">
-    {% block content %}{% endblock %}
-  </main>
 
-  {% include '_partials/_site-footer.twig' %}
-
-  {{ vite.entry('main') }}
+   {% include '_partials/_modal.twig' %}
 </body>
 </html>

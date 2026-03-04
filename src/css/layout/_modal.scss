@@ -1,0 +1,197 @@
+// src/css/layout/_modal.scss
+@use '../abstracts/variables' as *;
+
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: flex;
+  visibility: hidden;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(0 0 0 / 80%);
+  opacity: 0;
+  transition:
+    opacity 250ms ease-in-out,
+    visibility 0s 250ms;
+
+  &.is-active {
+    visibility: visible;
+    opacity: 1;
+    transition:
+      opacity 250ms ease-in-out,
+      visibility 0s 0s;
+  }
+}
+
+.modal {
+  position: relative;
+  display: flex;
+  flex-flow: column nowrap;
+  width: min(600px, 90vw);
+  max-height: 85vh;
+  padding: 0;
+  overflow: visible;
+  color: #fff;
+  background-color: #000;
+  border: none;
+}
+
+.modal__header {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 24px;
+  border-bottom: 1px solid rgb(255 255 255 / 20%);
+}
+
+.modal__title {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.modal__close {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  margin: 0;
+  color: #fff;
+  cursor: pointer;
+  background: none;
+  border: none;
+  transition: color 250ms ease-in-out;
+
+  &:hover,
+  &:focus {
+    color: cyan;
+  }
+}
+
+.modal__body {
+  position: relative;
+  display: flex;
+  flex: 1;
+  flex-flow: column nowrap;
+  padding: 24px;
+  overflow-y: auto;
+}
+
+.modal__essay {
+  margin-bottom: 24px;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.modal__print-btn {
+  align-self: flex-start;
+  padding: 10px 20px;
+  color: #000;
+  cursor: pointer;
+  background-color: cyan;
+  border: none;
+  transition: background-color 250ms ease-in-out;
+
+  &:hover,
+  &:focus {
+    background-color: #fff;
+  }
+}
+
+.modal__form-wrapper {
+  position: fixed;
+  inset: 0;
+  visibility: hidden;
+  padding: 24px;
+  overflow-y: auto;
+  background-color: #000;
+  opacity: 0;
+  transition:
+    opacity 250ms ease-in-out,
+    visibility 0s 250ms;
+
+  &.is-active {
+    visibility: visible;
+    opacity: 1;
+  }
+}
+
+.modal__form-dismiss {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+  padding: 0;
+  margin: 24px 0 16px;
+  color: rgb(255 255 255 / 60%);
+  cursor: pointer;
+  background: none;
+  border: none;
+  transition: color 250ms ease-in-out;
+
+  &:hover,
+  &:focus {
+    color: cyan;
+  }
+}
+
+.modal__form {
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 16px;
+}
+
+.modal__field {
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 6px;
+
+  label {
+    font-size: 12px;
+    color: rgb(255 255 255 / 60%);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  input,
+  textarea {
+    padding: 10px 12px;
+    color: #fff;
+    background-color: rgb(255 255 255 / 15%);
+    border: 1px solid rgb(255 255 255 / 20%);
+    transition: border-color 250ms ease-in-out;
+
+    &:focus {
+      outline: none;
+      border-color: cyan;
+    }
+  }
+
+  textarea {
+    resize: vertical;
+  }
+}
+
+.modal__submit {
+  align-self: flex-start;
+  padding: 10px 20px;
+  color: #000;
+  cursor: pointer;
+  background-color: cyan;
+  border: none;
+  transition: background-color 250ms ease-in-out;
+
+  &:hover,
+  &:focus {
+    background-color: #fff;
+  }
+}
+
+.modal__thankyou {
+  padding: 24px 0;
+  font-size: 16px;
+  line-height: 1.6;
+}
