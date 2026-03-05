@@ -17,7 +17,6 @@
       </button>
     </header>
 
-
     <div class="modal__body">
       {% if entry is defined and entry.section.handle == 'work' %}
         {% if entry.essay %}
@@ -32,13 +31,6 @@
       </button>
 
       <div class="modal__form-wrapper" aria-hidden="true">
-        <button class="modal__form-dismiss" aria-label="Dismiss print request form">
-          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24">
-            <path fill="currentColor" d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/>
-          </svg>
-          <span class="sr-only">Dismiss form</span>
-        </button>
-
         <form class="modal__form" name="print-request" method="POST" netlify>
           <input type="hidden" name="form-name" value="print-request">
           {% if entry is defined %}
@@ -64,8 +56,10 @@
             <label for="comments">Comments</label>
             <textarea id="comments" name="comments" rows="3"></textarea>
           </div>
-
+          <div class="modal__form-buttons">
           <button type="submit" class="modal__submit">Send Request</button>
+          <button type="button" class="modal__cancel modal__form-dismiss" aria-label="Dismiss print request form">Cancel</button>
+          </div>
         </form>
 
         <div class="modal__thankyou" aria-live="polite" hidden>

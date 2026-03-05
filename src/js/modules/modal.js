@@ -7,6 +7,7 @@ const initModal = () => {
   const modal = document.querySelector('.modal');
   const closeBtn = document.querySelector('.modal__close');
   const printBtn = document.querySelector('.modal__print-btn');
+  const essay = document.querySelector('.modal__essay');
   const formWrapper = document.querySelector('.modal__form-wrapper');
   const formDismiss = document.querySelector('.modal__form-dismiss');
   const form = document.querySelector('.modal__form');
@@ -59,7 +60,9 @@ const initModal = () => {
 
   // Show form on print button click
   printBtn.addEventListener('click', () => {
-    printBtn.hidden = true;
+    // printBtn.hidden = true;
+    // essay.classList.add('opacity-0');
+    // printBtn.classList.add('opacity-0');
     formWrapper.classList.add('is-active');
     formDismiss.focus();
     logger.log('Print form opened');
@@ -70,6 +73,8 @@ const initModal = () => {
     formWrapper.classList.remove('is-active');
     printBtn.hidden = false;
     printBtn.focus();
+    // essay.classList.remove('opacity-0');
+    // printBtn.classList.remove('opacity-0');
     logger.log('Print form dismissed');
   });
 

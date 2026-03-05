@@ -1,5 +1,6 @@
 // src/css/layout/_modal.scss
 @use '../abstracts/variables' as *;
+@use '../abstracts/scrollbar' as *;
 
 .modal-overlay {
   position: fixed;
@@ -7,7 +8,7 @@
   z-index: 100;
   display: flex;
   visibility: hidden;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
   background-color: rgb(0 0 0 / 80%);
   opacity: 0;
@@ -31,6 +32,7 @@
   width: min(600px, 90vw);
   max-height: 85vh;
   padding: 0;
+  margin-top: 45px;
   overflow: visible;
   color: #fff;
   background-color: #000;
@@ -79,6 +81,8 @@
   flex-flow: column nowrap;
   padding: 24px;
   overflow-y: auto;
+
+  @include scrollbar(4px, #fff, #000, cyan);
 }
 
 .modal__essay {
@@ -90,6 +94,7 @@
 .modal__print-btn {
   align-self: flex-start;
   padding: 10px 20px;
+  margin-bottom: 75px;
   color: #000;
   cursor: pointer;
   background-color: cyan;
@@ -105,36 +110,26 @@
 .modal__form-wrapper {
   position: fixed;
   inset: 0;
+  display: block;
   visibility: hidden;
-  padding: 24px;
+  flex-flow: column nowrap;
+  align-items: flex-start;
+  justify-content: center;
+  height: 100%;
+  padding: 45px 24px;
   overflow-y: auto;
   background-color: #000;
   opacity: 0;
   transition:
-    opacity 250ms ease-in-out,
-    visibility 0s 250ms;
+    opacity 1000ms ease-in-out,
+    visibility 0s 1000ms;
 
   &.is-active {
     visibility: visible;
     opacity: 1;
-  }
-}
-
-.modal__form-dismiss {
-  display: flex;
-  gap: 6px;
-  align-items: center;
-  padding: 0;
-  margin: 24px 0 16px;
-  color: rgb(255 255 255 / 60%);
-  cursor: pointer;
-  background: none;
-  border: none;
-  transition: color 250ms ease-in-out;
-
-  &:hover,
-  &:focus {
-    color: cyan;
+    transition:
+      opacity 1000ms ease-in-out,
+      visibility 0s 0s;
   }
 }
 
@@ -142,6 +137,12 @@
   display: flex;
   flex-flow: column nowrap;
   gap: 16px;
+  width: 100%;
+  max-width: 600px;
+  padding: 24px;
+  margin: 0 auto;
+  background-color: #000;
+  border: 1px solid cyan;
 }
 
 .modal__field {
@@ -175,6 +176,7 @@
   }
 }
 
+.modal__cancel,
 .modal__submit {
   align-self: flex-start;
   padding: 10px 20px;
