@@ -1,3 +1,4 @@
+//templates/_macros/picture.twig
 {% macro portfolio(image, alt, size = 800, classes = '') %}
   {% if image %}
     <picture>
@@ -15,7 +16,9 @@
         width="{{ size }}"
         height="{{ size }}"
         loading="lazy"
-        class="{{ classes }}">
+        class="{{ classes }}"
+        tabindex="0"
+        role="button">
     </picture>
   {% endif %}
 {% endmacro %}

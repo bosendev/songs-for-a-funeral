@@ -197,3 +197,9 @@
   font-size: 16px;
   line-height: 1.6;
 }
+
+.modal-overlay--no-entry {
+  .modal__body {
+    padding: 24px 0;
+  }
+}

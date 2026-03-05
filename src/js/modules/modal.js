@@ -18,13 +18,46 @@ const initModal = () => {
 
   if (!overlay || !trigger) return;
 
+  const trapFocus = (e) => {
+    const focusableSelectors = 'button, input, textarea, [tabindex="0"]';
+    const focusableElements = [...modal.querySelectorAll(focusableSelectors)].filter(
+      (el) => !el.closest('[hidden]') && !el.closest('.modal__form-wrapper:not(.is-active)')
+    );
+    const firstFocusable = focusableElements[0];
+    const lastFocusable = focusableElements[focusableElements.length - 1];
+
+    if (e.key === 'Tab') {
+      if (e.shiftKey) {
+        if (document.activeElement === firstFocusable) {
+          e.preventDefault();
+          lastFocusable.focus();
+        }
+      } else {
+        if (document.activeElement === lastFocusable) {
+          e.preventDefault();
+          firstFocusable.focus();
+        }
+      }
+    }
+  };
+
   const openModal = () => {
     overlay.setAttribute('aria-hidden', 'false');
     overlay.classList.add('is-active');
     modal.setAttribute('open', '');
     bodyL.inert = true;
-    closeBtn.focus();
     body.style.overflow = 'hidden';
+    modal.addEventListener('keydown', trapFocus);
+
+    if (printBtn) {
+      closeBtn.focus();
+    } else {
+      setTimeout(() => {
+        const firstInput = form.querySelector('input:not([type="hidden"]), textarea');
+        if (firstInput) firstInput.focus();
+      }, 100);
+    }
+
     logger.log('Modal opened');
   };
 
@@ -32,16 +65,25 @@ const initModal = () => {
     overlay.setAttribute('aria-hidden', 'true');
     overlay.classList.remove('is-active');
     modal.removeAttribute('open');
-    formWrapper.classList.remove('is-active');
+    if (formWrapper) formWrapper.classList.remove('is-active');
     bodyL.inert = false;
-    printBtn.hidden = false;
+    if (printBtn) printBtn.hidden = false;
     trigger.focus();
     body.style.overflow = 'auto';
+    modal.removeEventListener('keydown', trapFocus);
     logger.log('Modal closed');
   };
 
   // Open modal on image click
   trigger.addEventListener('click', openModal);
+
+  // Open modal on Enter or Space key
+  trigger.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      openModal();
+    }
+  });
 
   // Close on close button click
   closeBtn.addEventListener('click', closeModal);
@@ -59,24 +101,33 @@ const initModal = () => {
   });
 
   // Show form on print button click
-  printBtn.addEventListener('click', () => {
-    // printBtn.hidden = true;
-    // essay.classList.add('opacity-0');
-    // printBtn.classList.add('opacity-0');
-    formWrapper.classList.add('is-active');
-    formDismiss.focus();
-    logger.log('Print form opened');
-  });
+  if (printBtn) {
+    printBtn.addEventListener('click', () => {
+      formWrapper.classList.add('is-active');
+      setTimeout(() => {
+        const firstInput = form.querySelector('input:not([type="hidden"]), textarea');
+        if (firstInput) firstInput.focus();
+        logger.log('First input found:', firstInput);
+      }, 1050);
+      logger.log('Print form opened');
+    });
+  }
 
   // Hide form on dismiss click
-  formDismiss.addEventListener('click', () => {
-    formWrapper.classList.remove('is-active');
-    printBtn.hidden = false;
-    printBtn.focus();
-    // essay.classList.remove('opacity-0');
-    // printBtn.classList.remove('opacity-0');
-    logger.log('Print form dismissed');
-  });
+  if (formDismiss) {
+    formDismiss.addEventListener('click', () => {
+      formWrapper.classList.remove('is-active');
+      if (printBtn) printBtn.hidden = false;
+      if (printBtn) printBtn.focus();
+      logger.log('Print form dismissed');
+    });
+  }
+
+  // Cancel button closes entire modal (no-essay version)
+  const cancelBtn = document.querySelector('.modal__cancel');
+  if (cancelBtn) {
+    cancelBtn.addEventListener('click', closeModal);
+  }
 
   // Handle form submission
   form.addEventListener('submit', async (e) => {

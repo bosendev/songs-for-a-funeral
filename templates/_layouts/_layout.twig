@@ -25,7 +25,12 @@
     {{ vite.entry('main') }}
   </div>
 
-
-   {% include '_partials/_modal.twig' %}
+  {% if entry is defined and entry.section.handle == 'work' %}
+    {% if entry.essay %}
+      {% include '_partials/_modal.twig' %}
+    {% else %}
+      {% include '_partials/_modal-no-essay.twig' %}
+    {% endif %}
+  {% endif %}
 </body>
 </html>
