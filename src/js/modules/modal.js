@@ -1,6 +1,7 @@
 // src/js/modules/modal.js
 
 import { logger } from '../utils/logger.js';
+import { initValidation, validateForm } from './validation.js';
 
 const initModal = () => {
   const overlay = document.querySelector('.modal-overlay');
@@ -41,6 +42,27 @@ const initModal = () => {
     }
   };
 
+  const clearForm = () => {
+    const fields = form.querySelectorAll('input:not([type="hidden"]), textarea');
+    fields.forEach((input) => {
+      input.value = '';
+    });
+  };
+
+  const clearErrors = () => {
+    const fields = form.querySelectorAll('input:not([type="hidden"]), textarea');
+    fields.forEach((input) => {
+      input.classList.remove('is-invalid');
+      const field = input.closest('.modal__field');
+      if (field) {
+        const error = field.querySelector('.modal__error');
+        if (error) error.remove();
+      }
+    });
+  };
+
+  initValidation(form);
+
   const openModal = () => {
     overlay.setAttribute('aria-hidden', 'false');
     overlay.classList.add('is-active');
@@ -71,13 +93,12 @@ const initModal = () => {
     trigger.focus();
     body.style.overflow = 'auto';
     modal.removeEventListener('keydown', trapFocus);
+    clearErrors();
     logger.log('Modal closed');
   };
 
-  // Open modal on image click
   trigger.addEventListener('click', openModal);
 
-  // Open modal on Enter or Space key
   trigger.addEventListener('keydown', (e) => {
     if (e.key === 'Enter' || e.key === ' ') {
       e.preventDefault();
@@ -85,22 +106,18 @@ const initModal = () => {
     }
   });
 
-  // Close on close button click
   closeBtn.addEventListener('click', closeModal);
 
-  // Close on overlay click (outside modal)
   overlay.addEventListener('click', (e) => {
     if (e.target === overlay) closeModal();
   });
 
-  // Close on Escape key
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape' && overlay.classList.contains('is-active')) {
       closeModal();
     }
   });
 
-  // Show form on print button click
   if (printBtn) {
     printBtn.addEventListener('click', () => {
       formWrapper.classList.add('is-active');
@@ -113,25 +130,28 @@ const initModal = () => {
     });
   }
 
-  // Hide form on dismiss click
   if (formDismiss) {
     formDismiss.addEventListener('click', () => {
       formWrapper.classList.remove('is-active');
+      clearForm();
       if (printBtn) printBtn.hidden = false;
       if (printBtn) printBtn.focus();
       logger.log('Print form dismissed');
     });
   }
 
-  // Cancel button closes entire modal (no-essay version)
   const cancelBtn = document.querySelector('.modal__cancel');
   if (cancelBtn) {
-    cancelBtn.addEventListener('click', closeModal);
+    cancelBtn.addEventListener('click', () => {
+      clearForm();
+      closeModal();
+    });
   }
 
-  // Handle form submission
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
+
+    if (!validateForm(form)) return;
 
     const formData = new FormData(form);
 
@@ -146,6 +166,12 @@ const initModal = () => {
         form.hidden = true;
         thankYou.hidden = false;
         logger.log('Form submitted successfully');
+        setTimeout(() => {
+          closeModal();
+          form.hidden = false;
+          thankYou.hidden = true;
+          clearForm();
+        }, 3000);
       } else {
         logger.log('Form submission failed');
       }

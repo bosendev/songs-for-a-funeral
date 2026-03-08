@@ -19,36 +19,10 @@
     </header>
 
     <div class="modal__body">
-      <form class="modal__form" name="print-request" method="POST" netlify>
-        <input type="hidden" name="form-name" value="print-request">
-        {% if entry is defined %}
-          <input type="hidden" name="image" value="{{ entry.title }}">
-        {% endif %}
 
-        <div class="modal__field">
-          <label for="name">Name</label>
-          <input type="text" id="name" name="name" required>
-        </div>
-
-        <div class="modal__field">
-          <label for="email">Email</label>
-          <input type="email" id="email" name="email" required>
-        </div>
-
-        <div class="modal__field">
-          <label for="address">Mailing Address</label>
-          <textarea id="address" name="address" rows="3" required></textarea>
-        </div>
-
-        <div class="modal__field">
-          <label for="comments">Comments</label>
-          <textarea id="comments" name="comments" rows="3"></textarea>
-        </div>
-
-        <div class="modal__form-buttons">
-          <button type="submit" class="modal__submit">Send Request</button>
-          <button type="button" class="modal__cancel" aria-label="Cancel and close">Cancel</button>
-        </div>
+      <h3 class="text-center px-[24px] mb-[30px]">Request a free print.</h3>
+      <form class="modal__form" name="print-request" method="POST" netlify novalidate>
+         {% include '_partials/_form-fields.twig' with { hasEssay: false } %}
       </form>
 
       <div class="modal__thankyou" aria-live="polite" hidden>

@@ -7,13 +7,56 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{% if entry is defined %}{{ entry.title }} - {% endif %}Songs for a Funeral</title>
+
+  {# Title #}
+  <title>
+    {%- if entry is defined -%}
+      {{- entry.seoTitle ?? entry.title }} - Songs for a Funeral
+    {%- else -%}
+      Songs for a Funeral
+    {%- endif -%}
+  </title>
+
+  {# Meta description #}
+  {% if entry is defined %}
+    {% set metaDescription = entry.seoDescription ?? entry.essay ?? null %}
+    {% if metaDescription %}
+      <meta name="description" content="{{ metaDescription|striptags|slice(0, 160) }}">
+    {% endif %}
+  {% else %}
+    <meta name="description" content="Songs for a Funeral — a collection of photographic work.">
+  {% endif %}
+
+  {# Canonical URL #}
+  {% if entry is defined %}
+    <link rel="canonical" href="{{ entry.url }}">
+  {% else %}
+    <link rel="canonical" href="{{ siteUrl }}work">
+  {% endif %}
+
+  {# Open Graph #}
+  <meta property="og:site_name" content="Songs for a Funeral">
+  <meta property="og:type" content="{% if entry is defined %}article{% else %}website{% endif %}">
+  <meta property="og:title" content="{% if entry is defined %}{{ entry.seoTitle ?? entry.title }}{% else %}Songs for a Funeral{% endif %}">
+  {% if entry is defined %}
+    {% set metaDescription = entry.seoDescription ?? entry.essay ?? null %}
+    {% if metaDescription %}
+      <meta property="og:description" content="{{ metaDescription|striptags|slice(0, 160) }}">
+    {% endif %}
+    {% if entry.photo.one() %}
+      <meta property="og:image" content="{{ entry.photo.one().getUrl({ width: 1200 }) }}">
+    {% endif %}
+  {% endif %}
+
+  {# Robots #}
+  <meta name="robots" content="index, follow">
+
   <style>
-  body {
-    opacity: 0;
-    visibility: hidden;
-  }
-</style>
+    body {
+      opacity: 0;
+      visibility: hidden;
+    }
+  </style>
 </head>
 <body>
   <div class="body-l">

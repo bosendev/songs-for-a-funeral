@@ -1,0 +1,6 @@
+siteUid: null
+sortOrder: 1
+template: sitemap.xml
+uriParts:
+  - sitemap.xml
+uriPattern: sitemap.xml
