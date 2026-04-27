@@ -20,6 +20,17 @@ body {
   }
 }
 
+.body-l {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  min-height: 100vh;
+}
+
 main {
-  padding: 30px 20px 121px;
+  width: 100%;
+  padding: 30px 20px;
+  margin: 0;
 }

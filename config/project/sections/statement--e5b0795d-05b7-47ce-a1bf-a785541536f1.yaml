@@ -1,0 +1,21 @@
+defaultPlacement: end
+enableVersioning: true
+entryTypes:
+  -
+    uid: fead4c5d-a024-4b8c-a903-25ee6d421223 # Statement
+handle: statement
+maxAuthors: 1
+name: Statement
+previewTargets:
+  -
+    label: 'Primary entry page'
+    refresh: '1'
+    urlFormat: '{url}'
+propagationMethod: all
+siteSettings:
+  4a5b9cf2-1f29-4981-b8bd-cf826cc03eb3: # Songs for a Funeral
+    enabledByDefault: true
+    hasUrls: true
+    template: statement/_entry.twig
+    uriFormat: statement
+type: single

@@ -1,7 +1,12 @@
 {# site-footer.twig #}
-<footer class="site-footer bg-gray-800 text-white p-4">
-  <div class="container mx-auto flex gap-6">
-    <a href="/" class="hover:underline">Home</a>
-    <a href="/work" class="hover:underline">Work</a>
+<footer class="site-footer">
+  <div class="site-footer-l">
+    <nav class="site-footer-nav">
+      <a href="/">Songs for a Funeral</a>
+
+      <a href="/statement">Statement</a>
+      <a href="/work" >Work</a>
+    </nav>
   </div>
+  <p class="site-footer-copyright"><strong>&copy; bpb {{ now|date('Y') }}</strong></p>
 </footer>

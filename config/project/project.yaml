@@ -1,4 +1,4 @@
-dateModified: 1772997875
+dateModified: 1777306315
 elementSources:
   craft\elements\Entry:
     -
@@ -46,6 +46,8 @@ meta:
     3546a7c2-3464-4c2f-94e9-8e465a997606: 'SEO Description' # SEO Description
     89621744-3d7a-43d1-9747-b1804ade848e: 'Songs for a Funeral' # Songs for a Funeral
     b1cbfad8-59d6-4383-9a6f-6907187a2bcf: Photo # Photo
+    e5b0795d-05b7-47ce-a1bf-a785541536f1: Statement # Statement
+    fead4c5d-a024-4b8c-a903-25ee6d421223: Statement # Statement
 plugins:
   ssg:
     edition: standard

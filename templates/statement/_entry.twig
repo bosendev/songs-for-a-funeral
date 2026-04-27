@@ -1,0 +1,21 @@
+{# templates/statement/_entry.twig #}
+{% extends '_layouts/_layout.twig' %}
+
+{% block content %}
+  <article class="statement">
+    <h1>{{ entry.title }}</h1>
+
+    {% if entry.photo | length %}
+      <div class="statement__photo">
+        {{ entry.photo.one().url }}
+      </div>
+    {% endif %}
+
+    {% if entry.essay %}
+      <div class="statement__essay">
+        {{ entry.essay }}
+      </div>
+    {% endif %}
+
+  </article>
+{% endblock %}
