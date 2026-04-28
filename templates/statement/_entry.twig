@@ -2,8 +2,8 @@
 {% extends '_layouts/_layout.twig' %}
 
 {% block content %}
-  <article class="statement">
-    <h1>{{ entry.title }}</h1>
+  <article class="statement max-w-[802px] mx-auto text-center text-white">
+    <h1 class="text-white text-[40px] mb-[30px]">{{ entry.title }}</h1>
 
     {% if entry.photo | length %}
       <div class="statement__photo">
@@ -12,10 +12,10 @@
     {% endif %}
 
     {% if entry.essay %}
-      <div class="statement__essay">
-        {{ entry.essay }}
+      <div class="statement__essay text-white text-[24px] max-w-[425px] mx-auto italic">
+       {{ entry.essay | replace('/\\s(\\S+)$/', '&nbsp;$1') | raw }}
       </div>
     {% endif %}
-
+   <p class="mt-[40px] text-[11px]">*If you want a free print, click the image.</p>
   </article>
 {% endblock %}
