@@ -8,6 +8,10 @@
   padding-top: 20px;
   background-color: #fff;
 
+  @media (width <= 769px) {
+    padding-top: 10px;
+  }
+
   // Menu active state - controls all child elements
   &.is-active {
     .menu-btn {
@@ -63,6 +67,10 @@
   text-align: center;
   background-color: black;
   border-radius: 50% 50% 0 0;
+
+  @media (width <= 769px) {
+    zoom: 0.75;
+  }
 }
 
 .meh-title,
