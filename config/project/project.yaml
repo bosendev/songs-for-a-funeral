@@ -1,4 +1,4 @@
-dateModified: 1777306315
+dateModified: 1777413004
 elementSources:
   craft\elements\Entry:
     -
@@ -41,14 +41,23 @@ meta:
     5db93cc5-b517-4721-a35f-e224ae88890e: Essay # Essay
     7b24a742-6c87-427a-95ca-079481adeb82: 'Public Schema' # Public Schema
     8dd7e758-b1f9-4da4-8236-b7c69fa89f80: work # work
+    28e108b6-59bd-4ed3-a18a-dabb3be05508: Simple # Simple
+    518fbaa3-6498-4ac0-a8a8-8dd41c26ee32: Home # Home
     2727da44-f5fa-4848-bc8b-72a7083f647a: work # work
     2959d6de-074a-42fc-9fcc-2bbe6dd8f7f6: Uploads # Uploads
     3546a7c2-3464-4c2f-94e9-8e465a997606: 'SEO Description' # SEO Description
+    84331245-6a1d-4c82-a963-07daa9319310: 'Home Page' # Home Page
     89621744-3d7a-43d1-9747-b1804ade848e: 'Songs for a Funeral' # Songs for a Funeral
     b1cbfad8-59d6-4383-9a6f-6907187a2bcf: Photo # Photo
+    d506570b-32fd-4b85-9926-6a2dcbf74093: 'Intro Text' # Intro Text
     e5b0795d-05b7-47ce-a1bf-a785541536f1: Statement # Statement
+    eeca7651-21b7-4141-8625-11de7c19b994: 'Essay CK' # Essay CK
     fead4c5d-a024-4b8c-a903-25ee6d421223: Statement # Statement
 plugins:
+  ckeditor:
+    edition: standard
+    enabled: true
+    schemaVersion: 3.0.0.0
   ssg:
     edition: standard
     enabled: true

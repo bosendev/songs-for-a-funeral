@@ -1,0 +1,21 @@
+defaultPlacement: end
+enableVersioning: true
+entryTypes:
+  -
+    uid: 84331245-6a1d-4c82-a963-07daa9319310 # Home Page
+handle: home
+maxAuthors: 1
+name: Home
+previewTargets:
+  -
+    label: 'Primary entry page'
+    refresh: '1'
+    urlFormat: '{url}'
+propagationMethod: all
+siteSettings:
+  4a5b9cf2-1f29-4981-b8bd-cf826cc03eb3: # Songs for a Funeral
+    enabledByDefault: true
+    hasUrls: true
+    template: index.twig
+    uriFormat: __home__
+type: single
