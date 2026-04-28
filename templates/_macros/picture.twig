@@ -1,5 +1,5 @@
-//templates/_macros/picture.twig
-{% macro portfolio(image, alt, size = 800, classes = '') %}
+{# //templates/_macros/picture.twig #}
+{% macro portfolio(image, alt, size = 800, classes = '', focusable = true) %}
   {% if image %}
     <picture>
       <source
@@ -17,8 +17,7 @@
         height="{{ size }}"
         loading="lazy"
         class="{{ classes }}"
-        tabindex="0"
-        role="button">
+        {{ focusable ? 'tabindex="0" role="button"' : '' }}>
     </picture>
   {% endif %}
 {% endmacro %}

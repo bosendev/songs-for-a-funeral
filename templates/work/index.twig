@@ -1,19 +1,25 @@
+{# templates/work/index.twig #}
 {% extends "_layouts/_layout.twig" %}
 {% import '_macros/picture.twig' as picture %}
 
-{% block content %}
-<div class="container mx-auto px-4 py-12">
-  <h1 class="text-4xl font-bold mb-8">Work</h1>
 
-  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+{% block content %}
+
+<section class="work-index">
+  <ul class="work-index__list">
     {% for entry in craft.entries.section('work').all() %}
-      <a href="{{ entry.url }}" class="block">
-        {% if entry.photo.one() %}
-          {{ picture.portfolio(entry.photo.one(), entry.title, 600, 'w-full h-64 object-cover mb-4') }}
-        {% endif %}
-        <h2 class="text-xl font-semibold">{{ entry.title }}</h2>
-      </a>
+      <li class="work-index__item">
+        <a href="{{ entry.url }}" class="work-index__link">
+          {% if entry.photo.one() %}
+            <div class="work-index__thumb">
+              {{ picture.portfolio(entry.photo.one(), entry.title, 600, 'work-index__img', false) }}
+            </div>
+          {% endif %}
+          {# <h2 class="work-index__title">{{ entry.title }}</h2> #}
+        </a>
+      </li>
     {% endfor %}
-  </div>
-</div>
+  </ul>
+</section>
 {% endblock %}
