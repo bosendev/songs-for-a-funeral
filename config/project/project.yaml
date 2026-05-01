@@ -1,4 +1,4 @@
-dateModified: 1777413004
+dateModified: 1777479781
 elementSources:
   craft\elements\Entry:
     -
@@ -41,7 +41,6 @@ meta:
     5db93cc5-b517-4721-a35f-e224ae88890e: Essay # Essay
     7b24a742-6c87-427a-95ca-079481adeb82: 'Public Schema' # Public Schema
     8dd7e758-b1f9-4da4-8236-b7c69fa89f80: work # work
-    28e108b6-59bd-4ed3-a18a-dabb3be05508: Simple # Simple
     518fbaa3-6498-4ac0-a8a8-8dd41c26ee32: Home # Home
     2727da44-f5fa-4848-bc8b-72a7083f647a: work # work
     2959d6de-074a-42fc-9fcc-2bbe6dd8f7f6: Uploads # Uploads
@@ -57,7 +56,7 @@ plugins:
   ckeditor:
     edition: standard
     enabled: true
-    schemaVersion: 3.0.0.0
+    schemaVersion: 5.0.0.1
   ssg:
     edition: standard
     enabled: true
@@ -77,7 +76,7 @@ system:
   live: true
   name: 'Songs for a Funeral'
   retryDuration: null
-  schemaVersion: 5.8.0.3
+  schemaVersion: 5.9.0.8
   timeZone: America/Chicago
 users:
   allowPublicRegistration: false

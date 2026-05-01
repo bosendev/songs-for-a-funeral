@@ -3,7 +3,7 @@
 
 {% block content %}
   <article class="statement max-w-[802px] mx-auto text-center text-white">
-    <h1 class="text-white text-[40px] mb-[30px]">{{ entry.title }}</h1>
+    <h1 class="text-white text-[40px] mb-[30px] sr-only">{{ entry.title }}</h1>
 
     {% if entry.photo | length %}
       <div class="statement__photo">
@@ -16,6 +16,6 @@
        {{ entry.essay | replace('/\\s(\\S+)$/', '&nbsp;$1') | raw }}
       </div>
     {% endif %}
-   <p class="mt-[40px] text-[11px]">*If you want a free print, click the image.</p>
+   <p class="mt-[40px] text-[8px]">*If you want a free print, click the image.</p>
   </article>
 {% endblock %}
