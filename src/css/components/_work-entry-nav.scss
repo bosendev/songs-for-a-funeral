@@ -1,0 +1,43 @@
+.work-entry-nav {
+  display: flex;
+  justify-content: center;
+  padding: 1.5rem 0;
+
+  &__list {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+  }
+
+  &__link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #999;
+    text-decoration: none;
+    transition: color 200ms ease;
+
+    &:hover {
+      color: cyan;
+    }
+
+    &--disabled {
+      color: #444;
+      pointer-events: none;
+      cursor: default;
+    }
+  }
+
+  &__icon {
+    width: 1.5rem;
+    height: 1.5rem;
+    fill: none;
+    stroke: currentcolor;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+}

@@ -9,6 +9,7 @@
 @use 'layout/site-footer';
 @use 'layout/_modal';
 @use 'components/card-art-work';
+@use 'components/_work-entry-nav';
 @tailwind base;
 @tailwind components;
 @tailwind utilities;

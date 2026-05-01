@@ -9,6 +9,18 @@
   .all() %}
 
 <nav class="site-header__nav">
+  <ul class="site-header__nav-primary">
+    <li class="site-header__nav-primary-item">
+      <a href="/" class="site-header__nav-primary-link">Songs for a Funeral</a>
+    </li>
+    <li class="site-header__nav-primary-item">
+      <a href="/statement" class="site-header__nav-primary-link">Statement</a>
+    </li>
+    <li class="site-header__nav-primary-item">
+      <a href="/work" class="site-header__nav-primary-link">Work</a>
+    </li>
+  </ul>
+
   <div class="l-site-header__nav">
     <ul class="site-header__nav-list max-w-[800px] mx-auto">
       {% for work in workEntries %}

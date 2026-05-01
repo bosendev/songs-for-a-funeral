@@ -1,0 +1,61 @@
+{# _partials/_work-entry-nav.twig #}
+{% set allEntries = craft.entries.section('work').all() %}
+{% set currentIndex = null %}
+
+{% for e in allEntries %}
+  {% if e.id == entry.id %}
+    {% set currentIndex = loop.index0 %}
+  {% endif %}
+{% endfor %}
+
+{% set prevEntry = currentIndex > 0 ? allEntries[currentIndex - 1] : null %}
+{% set nextEntry = currentIndex is not null and currentIndex < (allEntries|length - 1) ? allEntries[currentIndex + 1] : null %}
+
+<nav class="work-entry-nav">
+  <ul class="work-entry-nav__list">
+
+    <li class="work-entry-nav__item work-entry-nav__item--prev">
+      {% if prevEntry %}
+        <a href="{{ prevEntry.url }}" class="work-entry-nav__link work-entry-nav__link--prev" aria-label="Previous">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="work-entry-nav__icon">
+            <path d="M15 18l-6-6 6-6"/>
+          </svg>
+        </a>
+      {% else %}
+        <span class="work-entry-nav__link work-entry-nav__link--disabled" aria-hidden="true">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="work-entry-nav__icon">
+            <path d="M15 18l-6-6 6-6"/>
+          </svg>
+        </span>
+      {% endif %}
+    </li>
+
+    <li class="work-entry-nav__item work-entry-nav__item--grid">
+      <a href="/work" class="work-entry-nav__link work-entry-nav__link--grid" aria-label="Back to work grid">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="work-entry-nav__icon">
+          <rect x="3" y="3" width="7" height="7"/>
+          <rect x="14" y="3" width="7" height="7"/>
+          <rect x="3" y="14" width="7" height="7"/>
+          <rect x="14" y="14" width="7" height="7"/>
+        </svg>
+      </a>
+    </li>
+
+    <li class="work-entry-nav__item work-entry-nav__item--next">
+      {% if nextEntry %}
+        <a href="{{ nextEntry.url }}" class="work-entry-nav__link work-entry-nav__link--next" aria-label="Next">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="work-entry-nav__icon">
+            <path d="M9 18l6-6-6-6"/>
+          </svg>
+        </a>
+      {% else %}
+        <span class="work-entry-nav__link work-entry-nav__link--disabled" aria-hidden="true">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="work-entry-nav__icon">
+            <path d="M9 18l6-6-6-6"/>
+          </svg>
+        </span>
+      {% endif %}
+    </li>
+
+  </ul>
+</nav>
